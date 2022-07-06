@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <title>Exercise 1 Web Crawler</title>
+        <script>
+            let li=document.links;
+            Array.from(li).forEach(function(element){
+            b=element.href;
+            bo=b.includes('javascript');   
+            if(bo){
+             console.log(b); }
+            });
+        </script>
+    </head>
+    
+</html>
