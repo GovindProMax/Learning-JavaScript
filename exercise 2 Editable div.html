@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>||Editable div||</title>
+</head>
+<body>
+</body>
+    <script>
+        let divElement = document.createElement('div');
+        let heading = document.createElement('h1');
+        let button = document.createElement('button');
+        let text = document.createTextNode('Click to change heading');
+
+        divElement.id='division'; 
+        divElement.className='DIV'; 
+        heading.appendChild(text);
+        button.appendChild(heading);
+        divElement.appendChild(button);
+        document.body.appendChild(divElement);
+
+        button.addEventListener('click', clickFunction);
+        let Input = document.createElement('input');
+        Input.type = 'text';
+        Input.placeholder = "Enter a text to change your Heading";
+        function clickFunction(e){
+            divElement.style.display='none';
+            document.body.appendChild(Input);
+            if(Input.style.display =='none')
+                Input.style.display='inline';
+        }
+
+        Input.addEventListener('blur',BlurFunction);
+        let EventNumber=1;    
+
+        function BlurFunction(e) {
+            let gettingTextFromUser=Input.value;
+            if (Input.length !=0){
+                heading.innerHTML = gettingTextFromUser;
+                divElement.style.display='block';
+                Input.style.display='none';
+                localStorage.setItem(`Text-${EventNumber }`,`${gettingTextFromUser}`);
+                EventNumber++;
+            }
+        }
+    </script>
+
+</html>
